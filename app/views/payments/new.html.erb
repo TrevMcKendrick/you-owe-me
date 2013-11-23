@@ -1,0 +1,26 @@
+<div class="container">
+
+ <%= form_for Payment.new do |f| %>
+  <div class="field">
+    <%= f.text_field :transfer_amount, :placeholder => "How much?" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :description,  :placeholder => "What for?" %>
+  </div>  
+
+ <%= fields_for User.new do |builder| %>
+  <div class="field">
+    <%=builder.label :phone %>
+    <%=builder.text_field :phone, :placeholder => "Friend's phone number" %>
+  </div>  
+  <div class="field">
+    <%=builder.label :email %>
+    <%=builder.text_field :email, :placeholder => "Friend's email" %>
+  </div>  
+ <% end %>
+
+  <div class="actions">
+    <%= f.submit "Get paid!" %>
+  </div>
+  <% end %>
+</div>
