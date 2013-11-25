@@ -2,17 +2,14 @@ class PaymentsController < ApplicationController
   
   def create
     
-    @payment = Payment.create(payment_params)
+    @payee = User.find_or_create_by(payee_params)
+    @payer = User.find_or_create_by(payer_params)
+
+    @payment = @payee.incoming_payments.create(payment_params)
+    @payment.update_column(:payer_id, @payer)    
     
-    # payment.payer = params[payer]
-    # payment.payee = params[]
+    PayerMailer.invite_payer_email(@payer, @payee, @payment).deliver if @payment.save
 
-    # payee = User.new
-    # payer = User.new
-
-    #create a new payment
-    #find or create payee, add to payment
-    #find or create payer, add to Payment
   end
 
   def new
@@ -21,7 +18,15 @@ class PaymentsController < ApplicationController
   private
 
   def payment_params
-      binding.pry
-      params.require(:payment).permit(:email, :transfer_amount, :description, :phone)
-    end
+      params.require(:payment).permit(:transfer_amount, :description)
+  end
+
+  def payee_params
+      params.require(:user).permit(:phone)
+  end
+
+  def payer_params
+      params.require(:user).permit(:email)
+  end
+
 end

@@ -2,9 +2,7 @@ YouOweMe::Application.routes.draw do
   
   root 'payments#new'
 
-  post '/payments', to: 'payments#create'
-
-  get 'payments/new'
+  post '/payments' => 'payments#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

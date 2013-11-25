@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi there <%= @payer.email %></p>
+    <p>
+     Your friend, <%= @payee.phone %> says you owe them $<%= @payment.transfer_amount %><br/>
+    </p>
+    <p>Click here to start paying them back!</p>
+    <p>Trevor</p>
+  </body>
+</html>
