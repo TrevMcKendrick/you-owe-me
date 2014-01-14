@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122215046) do
+ActiveRecord::Schema.define(version: 20131126005118) do
+
+  create_table "dwollas", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "payments", force: true do |t|
     t.string   "description"
@@ -30,6 +35,7 @@ ActiveRecord::Schema.define(version: 20131122215046) do
     t.string   "name"
     t.string   "email"
     t.string   "phone"
+    t.string   "dwolla_token"
   end
 
 end

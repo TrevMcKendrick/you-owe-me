@@ -15,6 +15,9 @@ class PaymentsController < ApplicationController
   def new
   end
 
+  def send
+  end
+
   private
 
   def payment_params

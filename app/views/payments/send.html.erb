@@ -1,0 +1,15 @@
+
+
+<div class="form-trevor" style="width: 300px; margin-left: auto; margin-right: auto; margin-top: 150px;">
+ <%= form_for Payment.new, :url => payment_url,:html => { :class => "form-signin" }, :include_id => false do |f|  %>
+    <h2 class="form-signin-heading text-center">Pay back your friend!</h2>
+
+ <%= fields_for User.new do |builder| %>
+    <%= builder.text_field :email, :name => "user[email]", :id => "email", :placeholder => "Your email", :class => "form-control" %>
+ <% end %>
+
+    <div class="submit-button" style="margin-top: 5px;">
+    <%= f.submit "Make a friend!", :class => "btn btn-lg btn-primary btn-block", :id => "submit-button" %>
+    </div>
+  <% end %>
+</div>

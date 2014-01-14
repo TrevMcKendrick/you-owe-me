@@ -34,7 +34,11 @@ end
 
 gem 'money-rails'
 
+gem 'omniauth-dwolla'
+
 gem 'pry'
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

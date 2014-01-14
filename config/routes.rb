@@ -1,8 +1,14 @@
 YouOweMe::Application.routes.draw do
   
+  resources :dwollas
+
   root 'payments#new'
 
   post '/payments' => 'payments#create'
+
+  get '/dwollas/new/redirect'
+
+  get '/dwollas', to: 'dwollas#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
